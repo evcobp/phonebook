@@ -13,3 +13,10 @@ def get_contact(name):
 def search_contacts(search):
 	match_keys = db.prefix(search)
 	return {k: db[k] for k in match_keys}
+
+def update_number(old_name, new_number):
+	db[old_name] = new_number
+
+def update_contact(old_name, new_name, new_number);
+	db[new_name] = new_number
+	del db[old_name]

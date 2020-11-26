@@ -30,7 +30,7 @@ def prompt_get_contact():
 
 def prompt_update_contact():
 	old_name = input("Please enter the name of the contact to update: ")
-	old_number contacts.get_contact(old_name)
+	old_number = contacts.get_contact(old_name)
 	if old_number:
 		new_name = input(f"Please enter the new name for this contact (leave blank to keep {old_name}): ").strip()
 		new_number = input(f"Please enter the new number for this contact (leave blank to keep {old_number}) ").strip()
