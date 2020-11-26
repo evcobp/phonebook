@@ -6,6 +6,8 @@ main_message = """WELCOME TO PHONEBOOK
 Please choose:
 1 - to add a new contact
 2 - to find a contact
+3 - to update a contact
+4 - to delete a contact
 ----------------------------------
 """
 
@@ -42,6 +44,15 @@ def prompt_update_contact():
 			contacts.update_number(old_name, new_number)
 		else: 
 			contacts.update_contact(old_name, new_name, new_number)
+
+def prompt_delete_contact():
+	name = input("Please enter the name to delete: ")
+	contact = contacts.get_contact(name)
+	if contact: 
+		print(f"Deleting {name}")
+		contacts.delete_contact(name)
+	else:
+		print(f"It looks like {name} does not exist")
 		
 
 def main():
@@ -51,6 +62,10 @@ def main():
 		prompt_add_contact()
 	elif choice == "2":
 		prompt_get_contact()
+	elif choice == "3":
+		prompt_update_contact()
+	elif choice == "4":
+		prompt_delete_contact()
 	else:
 		print("Invalid input. Please try again.")
 
