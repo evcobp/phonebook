@@ -28,6 +28,22 @@ def prompt_get_contact():
 		else: 
 			print(f"It looks like {name} does not exist")
 
+def prompt_update_contact():
+	old_name = input("Please enter the name of the contact to update: ")
+	old_number contacts.get_contact(old_name)
+	if old_number:
+		new_name = input(f"Please enter the new name for this contact (leave blank to keep {old_name}): ").strip()
+		new_number = input(f"Please enter the new number for this contact (leave blank to keep {old_number}) ").strip()
+
+		if not new_number:
+			new_number = old_number
+		
+		if not new_name:
+			contacts.update_number(old_name, new_number)
+		else: 
+			contacts.update_contact(old_name, new_name, new_number)
+		
+
 def main():
 	print(main_message)
 	choice = input("Please make your choice: ").strip()
